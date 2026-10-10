@@ -24,10 +24,19 @@ def cmd_exit(shell, args):
     return ""
 
 
+def cmd_vfs_init(shell, args):
+    """Replace the current VFS by the default one."""
+    if args:
+        raise ShellError("vfs-init: too many arguments")
+    shell.reset_vfs()
+    return ""
+
+
 COMMANDS = {
     "ls": cmd_ls,
     "cd": cmd_cd,
     "exit": cmd_exit,
+    "vfs-init": cmd_vfs_init,
 }
 
 

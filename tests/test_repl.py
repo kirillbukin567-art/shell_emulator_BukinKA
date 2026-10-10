@@ -30,7 +30,7 @@ class ReplTest(unittest.TestCase):
     def test_prompt_has_vfs_name(self):
         """The prompt contains the VFS name."""
         prompts, _ = run_session(["exit"])
-        self.assertIn("vfs", prompts[0])
+        self.assertIn("default", prompts[0])
 
     def test_stubs_print_name_and_args(self):
         """Stub commands echo their name and arguments."""

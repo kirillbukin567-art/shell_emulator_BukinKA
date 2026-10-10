@@ -1,0 +1,8 @@
+# Stage 3: all commands of stages 1-3 (VFS name is shown in the prompt)
+ls
+cd /docs
+vfs-init
+ls $HOME
+vfs-init extra
+unknown
+exit

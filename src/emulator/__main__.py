@@ -13,8 +13,8 @@ def main(argv=None):
     """Start the emulator: print parameters, run script, then dialog."""
     config = parse_config(argv)
     print("\n".join(format_debug(config)))
-    shell = Shell(vfs_path=config.vfs_path)
     try:
+        shell = Shell(vfs_path=config.vfs_path)
         if config.script_path:
             run_script(shell, config.script_path)
     except ShellError as error:
