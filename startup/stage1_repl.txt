@@ -1,0 +1,9 @@
+# Stage 1: stubs, variables and error handling
+ls
+ls -l /tmp "two words"
+cd $HOME
+cd ${HOME}/docs
+ls "$HOME" '$HOME'
+unknown_command arg
+ls 'unterminated
+exit

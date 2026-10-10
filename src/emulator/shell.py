@@ -9,9 +9,10 @@ DEFAULT_VFS_NAME = "vfs"
 class Shell:
     """Shell session: holds the state and executes command lines."""
 
-    def __init__(self, vfs_name=DEFAULT_VFS_NAME):
-        """Create a running shell with the given VFS name."""
+    def __init__(self, vfs_name=DEFAULT_VFS_NAME, vfs_path=None):
+        """Create a running shell with the given VFS name and location."""
         self.vfs_name = vfs_name
+        self.vfs_path = vfs_path
         self.running = True
 
     def prompt(self):

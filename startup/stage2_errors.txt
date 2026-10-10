@@ -1,0 +1,6 @@
+# Stage 2: erroneous lines are skipped, the script goes on
+ls first
+broken_command
+cd 'bad
+ls last
+exit
