@@ -1,0 +1,12 @@
+# Stage 4: text commands on the VFS with several files
+ls -l
+tac a.txt
+tac b.txt a.txt
+tail log.txt
+tail -n 3 log.txt
+tail -3 log.txt
+tail -n 0 log.txt
+tac empty.txt
+tac unicode.txt
+find . -name '*.txt'
+exit

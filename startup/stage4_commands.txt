@@ -1,0 +1,32 @@
+# Stage 4: ls, cd, tac, tail, find on the deep VFS
+pwd
+ls
+ls -l
+ls -a empty_dir
+ls /docs /src
+cd docs/api
+pwd
+ls
+cd ..
+cd ../../..
+cd v1
+cd /docs/api/v1
+find
+find / -name 'spec*'
+find /docs -type d
+find /src -type f -name '*.py'
+cd /
+tac docs/guide.txt
+tail -n 2 docs/guide.txt
+tail docs/guide.txt src/main.py
+tail -n 1 docs/api/v2/spec.txt
+# errors
+ls /nope
+cd readme.txt
+cd a b
+tac
+tac /docs
+tail -n x readme.txt
+find /nope
+find / -foo bar
+exit

@@ -53,20 +53,20 @@ class ScriptTest(unittest.TestCase):
 
     def test_input_and_output_are_shown(self):
         """The prompt with the command is printed before its output."""
-        failed, output = self.run_text("ls a\n")
+        failed, output = self.run_text("ls /docs\n")
         self.assertEqual(failed, 0)
-        self.assertEqual(output, ["default:/$ ls a", "ls a"])
+        self.assertEqual(output, ["default:/$ ls /docs", "notes.txt"])
 
     def test_errors_are_skipped(self):
         """A failed line is counted and the script continues."""
-        failed, output = self.run_text("bad\nls ok\n")
+        failed, output = self.run_text("bad\npwd\n")
         self.assertEqual(failed, 1)
-        self.assertEqual(output[-1], "ls ok")
+        self.assertEqual(output[-1], "/")
 
     def test_comments_and_blank_lines(self):
         """Comments and blank lines are not executed or shown."""
-        _, output = self.run_text("# note\n\nls\n")
-        self.assertEqual(output, ["default:/$ ls", "ls"])
+        _, output = self.run_text("# note\n\npwd\n")
+        self.assertEqual(output, ["default:/$ pwd", "/"])
 
     def test_exit_stops_script(self):
         """Lines after exit are not executed."""

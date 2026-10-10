@@ -32,10 +32,11 @@ class ReplTest(unittest.TestCase):
         prompts, _ = run_session(["exit"])
         self.assertIn("default", prompts[0])
 
-    def test_stubs_print_name_and_args(self):
-        """Stub commands echo their name and arguments."""
-        _, output = run_session(["ls -l /a", "cd /b", "exit"])
-        self.assertEqual(output, ["ls -l /a", "cd /b"])
+    def test_commands_work_in_dialog(self):
+        """Commands run and the prompt follows the directory."""
+        prompts, output = run_session(["cd /docs", "ls", "exit"])
+        self.assertEqual(output, ["notes.txt"])
+        self.assertEqual(prompts[1], "default:/docs$ ")
 
     def test_unknown_command_is_reported(self):
         """Unknown commands print an error and the loop goes on."""
@@ -44,7 +45,7 @@ class ReplTest(unittest.TestCase):
 
     def test_syntax_error_is_reported(self):
         """A parse error does not stop the shell."""
-        _, output = run_session(["ls 'x", "ls ok", "exit"])
+        _, output = run_session(["ls 'x", "pwd", "exit"])
         self.assertEqual(len(output), 2)
         self.assertTrue(output[0].startswith("error:"))
 

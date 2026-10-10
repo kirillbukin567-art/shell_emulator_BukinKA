@@ -1,21 +1,9 @@
 """Shell commands. Every command takes the shell and a list of arguments."""
 
+from emulator.cmd_find import cmd_find
+from emulator.cmd_nav import cmd_cd, cmd_ls, cmd_pwd
+from emulator.cmd_text import cmd_tac, cmd_tail
 from emulator.errors import ShellError
-
-
-def format_stub(name, args):
-    """Build the output of a stub command: its name and arguments."""
-    return " ".join([name] + args)
-
-
-def cmd_ls(shell, args):
-    """Stub of the ls command."""
-    return format_stub("ls", args)
-
-
-def cmd_cd(shell, args):
-    """Stub of the cd command."""
-    return format_stub("cd", args)
 
 
 def cmd_exit(shell, args):
@@ -35,6 +23,10 @@ def cmd_vfs_init(shell, args):
 COMMANDS = {
     "ls": cmd_ls,
     "cd": cmd_cd,
+    "pwd": cmd_pwd,
+    "tac": cmd_tac,
+    "tail": cmd_tail,
+    "find": cmd_find,
     "exit": cmd_exit,
     "vfs-init": cmd_vfs_init,
 }
