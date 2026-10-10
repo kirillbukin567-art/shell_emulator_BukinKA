@@ -3,20 +3,13 @@
 from emulator.cmd_find import cmd_find
 from emulator.cmd_nav import cmd_cd, cmd_ls, cmd_pwd
 from emulator.cmd_text import cmd_tac, cmd_tail
+from emulator.cmd_vfs import cmd_mkdir, cmd_vfs_init, cmd_vfs_load
 from emulator.errors import ShellError
 
 
 def cmd_exit(shell, args):
     """Stop the shell."""
     shell.running = False
-    return ""
-
-
-def cmd_vfs_init(shell, args):
-    """Replace the current VFS by the default one."""
-    if args:
-        raise ShellError("vfs-init: too many arguments")
-    shell.reset_vfs()
     return ""
 
 
@@ -27,8 +20,10 @@ COMMANDS = {
     "tac": cmd_tac,
     "tail": cmd_tail,
     "find": cmd_find,
+    "mkdir": cmd_mkdir,
     "exit": cmd_exit,
     "vfs-init": cmd_vfs_init,
+    "vfs-load": cmd_vfs_load,
 }
 
 

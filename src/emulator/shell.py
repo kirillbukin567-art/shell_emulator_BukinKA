@@ -20,11 +20,15 @@ class Shell:
         """Return the input prompt that contains the VFS name."""
         return f"{self.vfs.name}:{self.cwd}$ "
 
+    def set_vfs(self, vfs, vfs_path=None):
+        """Use another VFS; go to its root."""
+        self.vfs = vfs
+        self.vfs_path = vfs_path
+        self.cwd = ROOT_PATH
+
     def reset_vfs(self):
         """Replace the VFS by the default one and forget its location."""
-        self.vfs = default_vfs()
-        self.vfs_path = None
-        self.cwd = ROOT_PATH
+        self.set_vfs(default_vfs())
 
     def execute(self, line):
         """Execute one line and return its output (may raise ShellError)."""

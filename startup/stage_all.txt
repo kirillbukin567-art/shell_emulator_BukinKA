@@ -1,0 +1,14 @@
+# Check of every command of the emulator (stages 1-5)
+pwd
+ls -l /docs
+cd /docs/api
+tail -n 1 v2/spec.txt
+tac v1/spec.txt
+find /src -name '*.py'
+mkdir -p /tmp/work
+cd /tmp/work
+pwd
+vfs-init
+ls
+bad_command
+exit

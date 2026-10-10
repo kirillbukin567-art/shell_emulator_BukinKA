@@ -1,0 +1,27 @@
+# Stage 5: mkdir and vfs-load (all changes are made in memory only)
+ls
+mkdir reports
+mkdir -p reports/2026/q1 archive/old
+ls
+find / -type d
+cd reports/2026/q1
+pwd
+cd /
+mkdir reports
+mkdir nodir/inner
+mkdir readme.txt
+mkdir
+mkdir -z x
+vfs-load vfs/files.b64
+ls
+mkdir tmp
+ls
+vfs-load vfs/files.b64
+ls
+vfs-load vfs/missing.b64
+vfs-load README.md
+vfs-load
+ls
+vfs-init
+ls
+exit
